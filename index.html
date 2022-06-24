@@ -1,0 +1,141 @@
+ <!DOCTYPE html>
+ <html>
+    <head>
+        <title>Spot the diffrence</title>
+    </head>
+    <body>
+        <style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+* {
+    margin: 0;
+    padding: 0
+}
+body {
+    background-image: url("images/background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+td {
+    height: 130px;
+    width: 130px;
+    font-size: 50px;
+    font-family: Anton;
+    border-radius: 100vh;
+    cursor: pointer;
+}
+.lBlue {
+    background-color: aqua;
+}
+.dBlue {
+    background-color: rgb(0, 153, 255);
+}
+
+table {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.background {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    border: black 5px solid;
+    border-radius: 30px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+}
+.background:before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .2);
+  filter: blur(5px);
+  margin: -20px;
+}
+        </style>
+        <script>
+var range = 150;
+var misRange = 16;
+
+var numRange = [Math.floor( Math.random() * range / 2 ) * 2, Math.floor( Math.random() * range / 2 ) * 2,
+Math.floor( Math.random() * range / 2 ) * 2, Math.floor( Math.random() * range / 2 ) * 2, Math.floor( Math.random() * range / 2 ) * 2,
+Math.floor( Math.random() * range / 2 ) * 2, Math.floor( Math.random() * range / 2 ) * 2, Math.floor( Math.random() * range / 2 ) * 2,
+Math.floor( Math.random() * range / 2 ) * 2, Math.floor( Math.random() * range / 2 ) * 2, Math.floor( Math.random() * range / 2 ) * 2,
+Math.floor( Math.random() * range / 2 ) * 2, Math.floor( Math.random() * range / 2 ) * 2, Math.floor( Math.random() * range / 2 ) * 2,
+Math.floor( Math.random() * range / 2 ) * 2, Math.floor( Math.random() * range / 2 ) * 2]
+
+window.onload = function() {
+    mismatch()
+    start()
+    test()
+};
+
+function mismatch() {
+    var objectNum = (Math.floor( Math.random() * misRange))
+    numRange[objectNum] += 1
+}
+function start() {
+    document.getElementById("row1box1").innerHTML = numRange[0]
+    document.getElementById("row1box2").innerHTML = numRange[1]
+    document.getElementById("row1box3").innerHTML = numRange[2]
+    document.getElementById("row1box4").innerHTML = numRange[3]
+    document.getElementById("row2box1").innerHTML = numRange[4]
+    document.getElementById("row2box2").innerHTML = numRange[5]
+    document.getElementById("row2box3").innerHTML = numRange[6]
+    document.getElementById("row2box4").innerHTML = numRange[7]
+    document.getElementById("row3box1").innerHTML = numRange[8]
+    document.getElementById("row3box2").innerHTML = numRange[9]
+    document.getElementById("row3box3").innerHTML = numRange[10]
+    document.getElementById("row3box4").innerHTML = numRange[11]
+    document.getElementById("row4box1").innerHTML = numRange[12]
+    document.getElementById("row4box2").innerHTML = numRange[13]
+    document.getElementById("row4box3").innerHTML = numRange[14]
+    document.getElementById("row4box4").innerHTML = numRange[15]
+}
+
+function test() {
+    var idObjectNum = objectNum.toString()
+    document.getElementById(idObjectNum).innerHTML = "g"
+}
+        </script>
+        <div class="background" onclick="start()">
+            <table cellspacing="50px">
+                <tr class="row1">
+                    <td class="lBlue" id="1" onclick="test()"><center><a id="row1box1">20</a></center></td>
+                    <td class="dBlue" id="2"><center><a id="row1box2">72</a></center></td>
+                    <td class="lBlue" id="3"><center><a id="row1box3">64</a></center></td>
+                    <td class="dBlue" id="4"><center><a id="row1box4">17</a></center></td>
+                </tr>
+                <tr class="row2">
+                    <td class="dBlue" id="5"><center><a id="row2box1">58</a></center></td>
+                    <td class="lBlue" id="6"><center><a id="row2box2">72</a></center></td>
+                    <td class="dBlue" id="7"><center><a id="row2box3">90</a></center></td>
+                    <td class="lBlue" id="8"><center><a id="row2box4">96</a></center></td>
+                </tr>
+                <tr class="row3">
+                    <td class="lBlue" id="9"><center><a id="row3box1">80</a></center></td>
+                    <td class="dBlue" id="10"><center><a id="row3box2">78</a></center></td>
+                    <td class="lBlue" id="11"><center><a id="row3box3">46</a></center></td>
+                    <td class="dBlue" id="12"><center><a id="row3box4">72</a></center></td>
+                </tr>
+                <tr class="row4">
+                    <td class="dBlue" id="13"><center><a id="row4box1">68</a></center></td>
+                    <td class="lBlue" id="14"><center><a id="row4box2">108</a></center></td>
+                    <td class="dBlue" id="15"><center><a id="row4box3">18</a></center></td>
+                    <td class="lBlue" id="16"><center><a id="row4box4">48</a></center></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+ </html>
